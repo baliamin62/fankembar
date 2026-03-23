@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kembung Baru</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#020617;color:white;}
+
+/* NAV */
+nav{
+  position:fixed;
+  width:100%;
+  padding:15px;
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  background:rgba(0,0,0,0.5);
+  backdrop-filter:blur(10px);
+  z-index:999;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  cursor:pointer;
+  opacity:0.7;
+  transition:0.3s;
+}
+nav a:hover{opacity:1;color:#38bdf8;}
+
+/* PAGE */
+.page{
+  display:none;
+  min-height:100vh;
+  padding-top:70px;
+  animation:fade 0.4s;
+}
+.page.active{display:block;}
+
+@keyframes fade{
+  from{opacity:0}
+  to{opacity:1}
+}
+
+/* HERO */
+.hero{
+  height:100vh;
+  background:
+  linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+  url('https://picsum.photos/1200/800') center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.hero h1{font-size:40px;}
+.hero p{opacity:0.8;margin-top:10px;}
+
+/* CONTENT */
+.container{padding:30px;}
+.title{text-align:center;margin-bottom:30px;}
+
+/* ACCORDION */
+.accordion .item{
+  background:rgba(255,255,255,0.05);
+  border-radius:15px;
+  margin-bottom:15px;
+  padding:20px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.accordion .item:hover{
+  box-shadow:0 0 15px #38bdf8;
+}
+
+.judul{
+  font-size:18px;
+}
+
+.isi{
+  max-height:0;
+  overflow:hidden;
+  opacity:0;
+  margin-top:10px;
+  transition:0.4s;
+}
+
+.item.active .isi{
+  max-height:200px;
+  opacity:1;
+}
+
+/* GALERI */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:10px;
+}
+
+.gallery img{
+  width:100%;
+  border-radius:10px;
+}
+
+/* CARD */
+.card{
+  background:rgba(255,255,255,0.05);
+  padding:20px;
+  border-radius:15px;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:20px;
+  background:#000;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a onclick="show('home')">Home</a>
+  <a onclick="show('profil')">Profil</a>
+  <a onclick="show('galeri')">Galeri</a>
+  <a onclick="show('kontak')">Kontak</a>
+</nav>
+
+<!-- HOME -->
+<div id="home" class="page active">
+  <div class="hero">
+    <div>
+      <h1>Desa Kembung Baru</h1>
+      <p>Modern • Informatif • Transparan</p>
+    </div>
+  </div>
+</div>
+
+<!-- PROFIL -->
+<div id="profil" class="page">
+  <div class="container">
+    <h1 class="title">Profil Desa</h1>
+
+    <div class="accordion">
+      <div class="item" onclick="toggle(this)">
+        <div class="judul">Visi Desa</div>
+        <div class="isi">
+          Mewujudkan desa yang maju, mandiri, dan sejahtera.
+        </div>
+      </div>
+
+      <div class="item" onclick="toggle(this)">
+        <div class="judul">Misi Desa</div>
+        <div class="isi">
+          Meningkatkan pelayanan masyarakat dan pembangunan desa.
+        </div>
+      </div>
+
+      <div class="item" onclick="toggle(this)">
+        <div class="judul">Sejarah Desa</div>
+        <div class="isi">
+          Desa Kembung Baru berdiri sejak tahun XXXX dan terus berkembang.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- GALERI -->
+<div id="galeri" class="page">
+  <div class="container">
+    <h1 class="title">Galeri 📸</h1>
+    <div class="grid gallery">
+      <img src="https://picsum.photos/300/200?1">
+      <img src="https://picsum.photos/300/200?2">
+      <img src="https://picsum.photos/300/200?3">
+      <img src="https://picsum.photos/300/200?4">
+    </div>
+  </div>
+</div>
+
+<!-- KONTAK -->
+<div id="kontak" class="page">
+  <div class="container">
+    <h1 class="title">Kontak</h1>
+    <div class="card">
+      Email: desa@gmail.com <br>
+      Telp: 08xxxx
+    </div>
+  </div>
+</div>
+
+<footer>
+  © 2026 Kembung Baru
+</footer>
+
+<script>
+function show(id){
+  let pages = document.querySelectorAll('.page');
+  pages.forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+function toggle(el){
+  el.classList.toggle("active");
+}
+</script>
+
+</body>
+</html>
