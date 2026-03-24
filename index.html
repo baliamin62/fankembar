@@ -10,7 +10,6 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 body{background:#020617;color:white;}
-
 html{scroll-behavior:smooth;}
 
 /* NAV */
@@ -65,9 +64,6 @@ nav a:hover{opacity:1;color:#38bdf8;}
   width:100%;
   height:100%;
   object-fit:cover;
-  top:0;
-  left:0;
-  z-index:0;
 }
 
 .overlay{
@@ -75,9 +71,6 @@ nav a:hover{opacity:1;color:#38bdf8;}
   width:100%;
   height:100%;
   background:rgba(0,0,0,0.5);
-  top:0;
-  left:0;
-  z-index:1;
 }
 
 .hero .content{
@@ -106,9 +99,7 @@ nav a:hover{opacity:1;color:#38bdf8;}
   box-shadow:0 0 15px #38bdf8;
 }
 
-.judul{
-  font-size:18px;
-}
+.judul{font-size:18px;}
 
 .isi{
   max-height:0;
@@ -132,7 +123,49 @@ nav a:hover{opacity:1;color:#38bdf8;}
 
 .gallery img{
   width:100%;
+  height:200px;
+  object-fit:cover;
   border-radius:10px;
+  cursor:pointer;
+}
+
+/* POPUP */
+.popup{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.9);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  z-index:9999;
+}
+
+.popup img{
+  max-width:90%;
+  max-height:70%;
+  border-radius:10px;
+}
+
+.popup .close{
+  position:absolute;
+  top:20px;
+  right:25px;
+  font-size:25px;
+  cursor:pointer;
+}
+
+.download{
+  margin-top:15px;
+  padding:10px 20px;
+  background:#38bdf8;
+  color:#000;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:bold;
 }
 
 /* CARD */
@@ -149,44 +182,16 @@ footer{
   background:#000;
 }
 
-/* ================= MOBILE ================= */
+/* MOBILE */
 @media (max-width: 768px){
+  nav{flex-wrap:wrap;gap:10px;padding:10px;}
+  nav a{font-size:14px;}
 
-  nav{
-    flex-wrap:wrap;
-    gap:10px;
-    padding:10px;
-  }
+  .hero{height:80vh;padding:0 10px;}
+  .hero h1{font-size:24px;}
+  .hero p{font-size:14px;}
 
-  nav a{
-    font-size:14px;
-  }
-
-  .hero{
-    height:80vh;
-    padding:0 10px;
-  }
-
-  .hero h1{
-    font-size:24px;
-  }
-
-  .hero p{
-    font-size:14px;
-  }
-
-  .container{
-    padding:20px 15px;
-  }
-
-  .accordion .item{
-    padding:15px;
-  }
-
-  .judul{
-    font-size:16px;
-  }
-
+  .container{padding:20px 15px;}
 }
 </style>
 </head>
@@ -205,7 +210,6 @@ footer{
   <div class="hero">
     <img src="foto1.jpg">
     <div class="overlay"></div>
-
     <div class="content">
       <h1>FORUM ANAK DESA KEMBUNG BARU</h1>
       <p>Modern • Informatif • Keren</p>
@@ -217,35 +221,22 @@ footer{
 <div id="profil" class="page">
   <div class="container">
     <h1 class="title">Profil Forum Anak</h1>
-
     <div class="accordion">
       <div class="item" onclick="toggle(this)">
         <div class="judul">Visi Forum Anak</div>
-        <div class="isi">
-          Menjadi wadah anak yang aktif, kreatif, dan berperan dalam menyuarakan hak serta aspirasi anak
-        </div>
+        <div class="isi">Menjadi wadah anak yang aktif, kreatif, dan berperan dalam menyuarakan hak serta aspirasi anak</div>
       </div>
 
       <div class="item" onclick="toggle(this)">
         <div class="judul">Misi Forum Anak</div>
         <div class="isi">
-          1. Menyalurkan aspirasi dan suara anak <br>
-          2. Mendorong partisipasi anak dalam kegiatan positif <br>
-          3. Mengembangkan potensi, bakat, dan kreativitas anak <br>
-          4. menjadi pelopor dan pelapor dalam pemenuhan hak anak
-        </div>
-      </div>
-
-      <div class="item" onclick="toggle(this)">
-        <div class="judul">Sejarah Forum Anak</div>
-        <div class="isi">
-          Forum anak dibentuk sebagai wadah partisipasi anak untuk menyampaikan aspirasi, pendapat dan kebutuhan mereka.
-          Pembentukannya didorong oleh pentingnya pemenuhan hak anak sesuai dengan konvensi hak anak.
-          Di Indonesia, Forum Anak berkembang di berbagai daerah sebagai mitra pemerintah dalam mewujudkan lingkungan ramah anak.
+          1. Menyalurkan aspirasi anak <br>
+          2. Mendorong kegiatan positif <br>
+          3. Mengembangkan bakat <br>
+          4. Pelopor & pelapor hak anak
         </div>
       </div>
     </div>
-
   </div>
 </div>
 
@@ -254,33 +245,30 @@ footer{
   <div class="container">
     <h1 class="title">Galeri 📸</h1>
     <div class="grid gallery">
-      <img src="foto2.jpg">
-      <img src="foto3.jpg">
-      <img src="foto4.jpg">
-       <img src="1.jpg">
-      <img src="2.jpg">
-      <img src="3.jpg">
-       <img src="4.jpg">
-      <img src="5.jpg">
-      <img src="6.jpg">
-       <img src="7.jpg">
-      <img src="8.jpg">
-      <img src="9.jpg">
-       <img src="10.jpg">
-      <img src="11.jpg">
-      <img src="12.jpg">
-       <img src="13.jpg">
-      <img src="14.jpg">
-      <img src="15.jpg">
-       <img src="16.jpg">
-      <img src="17.jpg">
-      <img src="18.jpg">
-       <img src="19.jpg">
-      <img src="20.jpg">
-      <img src="21.jpg">
-         <img src="22.jpg">
+      <img src="foto2.jpg" onclick="bukaPopup(this)">
+      <img src="foto3.jpg" onclick="bukaPopup(this)">
+      <img src="foto4.jpg" onclick="bukaPopup(this)">
+      <img src="1.jpg" onclick="bukaPopup(this)">
+      <img src="2.jpg" onclick="bukaPopup(this)">
+      <img src="3.jpg" onclick="bukaPopup(this)">
+      <img src="4.jpg" onclick="bukaPopup(this)">
+      <img src="5.jpg" onclick="bukaPopup(this)">
+      <img src="6.jpg" onclick="bukaPopup(this)">
+      <img src="7.jpg" onclick="bukaPopup(this)">
+      <img src="8.jpg" onclick="bukaPopup(this)">
+      <img src="9.jpg" onclick="bukaPopup(this)">
+      <img src="10.jpg" onclick="bukaPopup(this)">
+      <img src="11.jpg" onclick="bukaPopup(this)">
+      <img src="12.jpg" onclick="bukaPopup(this)">
     </div>
   </div>
+</div>
+
+<!-- POPUP -->
+<div id="popup" class="popup" onclick="tutupPopup()">
+  <span class="close">✖</span>
+  <img id="popupImg">
+  <a id="downloadBtn" download class="download">Download</a>
 </div>
 
 <!-- KONTAK -->
@@ -289,7 +277,7 @@ footer{
     <h1 class="title">Kontak</h1>
     <div class="card">
       Email: fankembar@gmail.com <br>
-      Telp: 085264906050 (Ketua)
+      Telp: 085264906050
     </div>
   </div>
 </div>
@@ -300,13 +288,22 @@ footer{
 
 <script>
 function show(id){
-  let pages = document.querySelectorAll('.page');
-  pages.forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById(id).classList.add('active');
 }
 
 function toggle(el){
   el.classList.toggle("active");
+}
+
+function bukaPopup(img){
+  document.getElementById("popup").style.display="flex";
+  document.getElementById("popupImg").src=img.src;
+  document.getElementById("downloadBtn").href=img.src;
+}
+
+function tutupPopup(){
+  document.getElementById("popup").style.display="none";
 }
 </script>
 
