@@ -11,6 +11,8 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 body{background:#020617;color:white;}
 
+html{scroll-behavior:smooth;}
+
 /* NAV */
 nav{
   position:fixed;
@@ -47,7 +49,7 @@ nav a:hover{opacity:1;color:#38bdf8;}
   to{opacity:1}
 }
 
-/* HERO (SUDAH DIPERBAIKI) */
+/* HERO */
 .hero{
   height:100vh;
   position:relative;
@@ -117,14 +119,14 @@ nav a:hover{opacity:1;color:#38bdf8;}
 }
 
 .item.active .isi{
-  max-height:200px;
+  max-height:300px;
   opacity:1;
 }
 
 /* GALERI */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
   gap:10px;
 }
 
@@ -146,6 +148,46 @@ footer{
   padding:20px;
   background:#000;
 }
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px){
+
+  nav{
+    flex-wrap:wrap;
+    gap:10px;
+    padding:10px;
+  }
+
+  nav a{
+    font-size:14px;
+  }
+
+  .hero{
+    height:80vh;
+    padding:0 10px;
+  }
+
+  .hero h1{
+    font-size:24px;
+  }
+
+  .hero p{
+    font-size:14px;
+  }
+
+  .container{
+    padding:20px 15px;
+  }
+
+  .accordion .item{
+    padding:15px;
+  }
+
+  .judul{
+    font-size:16px;
+  }
+
+}
 </style>
 </head>
 
@@ -161,9 +203,7 @@ footer{
 <!-- HOME -->
 <div id="home" class="page active">
   <div class="hero">
-    <!-- 🔥 GANTI NAMA FOTO DI SINI -->
     <img src="foto1.jpg">
-
     <div class="overlay"></div>
 
     <div class="content">
@@ -199,9 +239,9 @@ footer{
       <div class="item" onclick="toggle(this)">
         <div class="judul">Sejarah Forum Anak</div>
         <div class="isi">
-          Forum anak di bentuk sebagai wadah partisipasi anak untuk menyampaikan aspirasi, pendapat dan kebutuhan mereka
-          Pembentukannya didorong oleh pentingnya pemenuhan hak anak sesuai dengan konvensi hak anak
-          Di indonesia, Forum Anak mulai berkembang di berbagai daerah sebagai mitra pemerintah dalam mewujudkan lingkungan yang ramah anak, serta sebagai pelopor dan pelapor dalam perlindungan anak
+          Forum anak dibentuk sebagai wadah partisipasi anak untuk menyampaikan aspirasi, pendapat dan kebutuhan mereka.
+          Pembentukannya didorong oleh pentingnya pemenuhan hak anak sesuai dengan konvensi hak anak.
+          Di Indonesia, Forum Anak berkembang di berbagai daerah sebagai mitra pemerintah dalam mewujudkan lingkungan ramah anak.
         </div>
       </div>
     </div>
@@ -226,7 +266,7 @@ footer{
   <div class="container">
     <h1 class="title">Kontak</h1>
     <div class="card">
-      Email: fankembar@gmailcom@gmail.com <br>
+      Email: fankembar@gmail.com <br>
       Telp: 085264906050 (Ketua)
     </div>
   </div>
